@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Movie
+
+<h1>Movie Submission</h1>
+
+<form method="post">
+    <label asp-for="category">Category:</label><br>
+    <input asp-for="category"/><br><br>
+    <label asp-for="subcategory">Subcategory:</label><br>
+    <input asp-for="subcategory" /><br><br>
+    <label asp-for="title">Title:</label><br>
+    <input asp-for="title" /><br><br>
+    <label asp-for="year">Year:</label><br>
+    <input asp-for="year" /><br><br>
+    <label asp-for="director">Director:</label><br>
+    <input asp-for="director" /><br><br>
+    <label asp-for="rating">Rating:</label><br>
+    <select asp-for="rating">
+        <option value="G">G</option>
+        <option value="PG">PG</option>
+        <option value="PG-13">PG-13</option>
+        <option value="R">R</option><br><br>
+    </select><br><br>
+    <label asp-for="edited">Edited:</label><br>
+    <select asp-for="edited">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+    </select><br><br>
+    <label asp-for="lent">Lent to:</label><br>
+    <input asp-for="lent" /><br><br>
+    <label asp-for="notes">Notes:</label><br>
+    <input asp-for="notes" /><br><br>
+    
+
+    <button type="submit">Submit Movie</button>
+</form>
