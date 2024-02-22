@@ -1,34 +1,32 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TLN_JoelMovies.Models
 {
     public class Movie
     {
         [Key]
-        [Required]
         public int movieID { get; set; }
 
-        [Required]
-        public string category { get; set; }
-        public string? subcategory { get; set; }
+        [ForeignKey("CategoryID")]
+        public int? CategoryID { get; set; }
+        public Category? Category{ get; set; }
+        [Required(ErrorMessage = "Sorry, you have to enter a title")]
+        public string Title { get; set; }
 
-        [Required]
-        public string title { get; set; }
+        [Range(1888, 2100, ErrorMessage = "Sorry, you have to enter a year later than 1888")]
+        public int Year { get; set; } = 1888;
 
-        [Required]
-        public int year { get; set; }
+        public string? Director { get; set; }
 
-        [Required]
-        public string director { get; set; }
+        public string? Rating { get; set; }
 
-        [Required]
-        public string rating { get; set; }
+        public bool Edited { get; set; }
 
-        [Required]
-        public bool edited { get; set; }
-
-        public string? lent { get; set; }  // Not marked as required
-        public string? notes { get; set; } // Not marked as required
+        public string? LentTo { get; set; }  // Not marked as required
+        
+        public bool CopiedToPlex { get; set; }
+        public string? Notes { get; set; } // Not marked as required
     }
 
 }
